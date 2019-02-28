@@ -17,6 +17,7 @@ var player = new MediaElementPlayer('player1', {
     useDefaultControls: true,
     features: ['quality'],
     qualityText: 'quality',
+    defaultQuality: '720',
     // alwaysShowControls: true,
     
     success: function (mediaElement, originalNode, instance) {
