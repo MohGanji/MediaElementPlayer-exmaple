@@ -18,14 +18,15 @@ function calc(
   percentage
 ) {
   let res = {};
-  const pic = parseInt(percentage * frameCount) + 1;
-  const ppp = frameCount / fileCount;
+  const pic = parseInt((percentage / 100) * frameCount) + 1;
+  const ppp = 25; //frameCount / fileCount;
   res.picNum = parseInt(pic / ppp);
   const pip = pic % ppp;
-  const pageRowCount = parseInt(ppp / 5) + 1;
-  const p = pip / pageRowCount;
-  res.x = p * smallPicWidth;
-  res.y = p * smallPicHeight;
+  const pageRowCount = parseInt(ppp / 5);
+  const py = parseInt(pip / pageRowCount);
+  const px = parseInt(pip % pageRowCount);
+  res.x = px * smallPicWidth;
+  res.y = py * smallPicHeight;
   return res;
 }
 var player = new MediaElementPlayer("player1", {
@@ -65,7 +66,7 @@ var player = new MediaElementPlayer("player1", {
         smallPicHeight,
         percentage
       );
-
+      console.log(imageLocation);
       // var imageLocation = {picNum: 0, x: }
     });
     // var renderer = document.getElementById(media.id + '-rendername');
