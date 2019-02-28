@@ -21,6 +21,19 @@ var player = new MediaElementPlayer('player1', {
     // alwaysShowControls: true,
     
     success: function (mediaElement, originalNode, instance) {
+
+        var slider = document.getElementsByClassName('mejs__time-slider')[0]
+        var fullwidth = slider.offsetWidth
+        slider.addEventListener('mousemove', function(e) {
+            console.log('j: ', e.layerX)
+            var percentage = (e.layerX * 100.0) / fullwidth
+            // imageLocation = {
+            //     picNum,
+            //     x,
+            //     y
+            // }
+            var imageLocation = calc(percentage)
+        } )
         // var renderer = document.getElementById(media.id + '-rendername');
 
         // media.addEventListener('loadedmetadata', function () {
