@@ -5,6 +5,14 @@ html, body {
     padding: 0 20px 50px;
 }
 
+#storyboard-image {
+    width: 170px;
+    height: 90px;
+    background-image: url("https://quera.ir/qbox/view/HpmNqdhNbk/M0.jpg");
+    background-position-x: 0px;
+    background-position-y: 0px;
+}
+
 /* #player1 {
     width: 100% !important;
 } */
