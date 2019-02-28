@@ -1,7 +1,7 @@
 .container {
     width: 80vw;
-    margin: 0 auto;
+    margin: 40px auto;
 }
-.player {
-    width: 100%;
-}
+/* #player1 {
+    width: 100% !important;
+} */
