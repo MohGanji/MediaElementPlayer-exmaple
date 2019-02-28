@@ -11,11 +11,11 @@
 //     }
 // });
 function calc(
-  fileCount,
-  frameCount,
-  smallPicWidth,
-  smallPicHeight,
-  percentage
+    fileCount,
+    frameCount,
+    smallPicWidth,
+    smallPicHeight,
+    percentage
 ) {
   let res = {};
   const pic = parseInt((percentage / 100) * frameCount) + 1;
@@ -29,59 +29,56 @@ function calc(
   res.y = py * smallPicHeight;
   return res;
 }
+
+
 var player = new MediaElementPlayer("player1", {
-  stretching: true,
-  pluginPath: "./node_modules/mediaelement/build/",
-  useDefaultControls: true,
-  features: ["quality"],
-  qualityText: "quality",
-  defaultQuality: "720",
-  // alwaysShowControls: true,
+    stretching: true,
+    pluginPath: "./node_modules/mediaelement/build/",
+    useDefaultControls: true,
+    features: ["quality"],
+    qualityText: "quality",
+    defaultQuality: "720",
+    // alwaysShowControls: true,
 
-  success: function(mediaElement, originalNode, instance) {
-    var slider = document.getElementsByClassName("mejs__time-slider")[0];
-    var fullwidth = slider.offsetWidth;
-    var storyBoardImages = [
-      "https://quera.ir/qbox/view/HpmNqdhNbk/M0.jpg",
-      "https://quera.ir/qbox/view/unIewuaWgF/M1.jpg",
-      "https://quera.ir/qbox/view/g021cyaHvA/M2.jpg",
-      "https://quera.ir/qbox/view/FVvx16FJmI/M3.jpg"
-    ];
-    var smallPicWidth = 170,
-      smallPicHeight = 90;
-    var fileCount = storyBoardImages.length;
-    var frameCount = 95;
-    slider.addEventListener("mousemove", function(e) {
-      console.log("j: ", e.layerX);
-      var percentage = (e.layerX * 100.0) / fullwidth;
-      // imageLocation = {
-      //     picNum,
-      //     x,
-      //     y
-      // }
-      var imageLocation = calc(
-        fileCount,
-        frameCount,
-        smallPicWidth,
-        smallPicHeight,
-        percentage
-      );
-      console.log(imageLocation);
-      // var imageLocation = {picNum: 0, x: }
-    });
-    // var renderer = document.getElementById(media.id + '-rendername');
+    success: function (mediaElement, originalNode, instance) {
+        var slider = document.getElementsByClassName("mejs__time-slider")[0];
+        var fullwidth = slider.offsetWidth;
+        var storyBoardImages = [
+            "https://quera.ir/qbox/view/HpmNqdhNbk/M0.jpg",
+            "https://quera.ir/qbox/view/unIewuaWgF/M1.jpg",
+            "https://quera.ir/qbox/view/g021cyaHvA/M2.jpg",
+            "https://quera.ir/qbox/view/FVvx16FJmI/M3.jpg"
+        ];
+        var smallPicWidth = 170,
+            smallPicHeight = 90;
+        var fileCount = storyBoardImages.length;
+        var frameCount = 95;
+        slider.addEventListener("mousemove", function (e) {
+            console.log("j: ", e.layerX);
+            var percentage = (e.layerX * 100.0) / fullwidth;
+            // imageLocation = {
+            //     picNum,
+            //     x,
+            //     y
+            // }
+            
 
-    // media.addEventListener('loadedmetadata', function () {
-    //     var src = media.originalNode.getAttribute('src').replace('&amp;', '&');
-    //     if (src !== null && src !== undefined) {
-    //         renderer.querySelector('.src').innerHTML = '<a href="' + src + '" target="_blank">' + src + '</a>';
-    //         renderer.querySelector('.renderer').innerHTML = media.rendererName;
-    //         renderer.querySelector('.error').innerHTML = '';
-    //     }
-    // });
+            // var imageLocation = {picNum: 0, x: }
+            // var renderer = document.getElementById(media.id + '-rendername');
+            // console.log(fileCount, frameCount, smallPicWidth, smallPicHeight, percentage)
+            var imageLocation = calc(
+                fileCount,
+                frameCount,
+                smallPicWidth,
+                smallPicHeight,
+                percentage
+            );
+            console.log('imageLocation: ', imageLocation)
+            // var imageLocation = { picNum: 0, x: 0, y: 0 }
+            document.getElementById('storyboard-image').setAttribute('background-image', `url(${storyBoardImages[imageLocation.picNum]})`)
+            document.getElementById('storyboard-image').setAttribute('background-position-x', `-${imageLocation.x}`)
+            document.getElementById('storyboard-image').setAttribute('background-position-y', `-${imageLocation.y}`)
+        })
 
-    // media.addEventListener('error', function (e) {
-    //     renderer.querySelector('.error').innerHTML = '<strong>Error</strong>: ' + e.message;
-    // });
-  }
+    }
 });
