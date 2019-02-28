@@ -19,12 +19,21 @@ var player = new MediaElementPlayer('player1', {
     qualityText: 'quality',
     defaultQuality: '720',
     // alwaysShowControls: true,
-    
+
     success: function (mediaElement, originalNode, instance) {
 
         var slider = document.getElementsByClassName('mejs__time-slider')[0]
         var fullwidth = slider.offsetWidth
-        slider.addEventListener('mousemove', function(e) {
+        var storyBoardImages = [
+            'https://quera.ir/qbox/view/HpmNqdhNbk/M0.jpg',
+            'https://quera.ir/qbox/view/unIewuaWgF/M1.jpg',
+            'https://quera.ir/qbox/view/g021cyaHvA/M2.jpg',
+            'https://quera.ir/qbox/view/FVvx16FJmI/M3.jpg'
+        ]
+        var smallPicWidth = 170, smallPicHeight = 90
+        var fileCount = storyBoardImages.length
+        var frameCount = 95
+        slider.addEventListener('mousemove', function (e) {
             console.log('j: ', e.layerX)
             var percentage = (e.layerX * 100.0) / fullwidth
             // imageLocation = {
@@ -32,8 +41,10 @@ var player = new MediaElementPlayer('player1', {
             //     x,
             //     y
             // }
-            var imageLocation = calc(percentage)
-        } )
+            // var imageLocation = calc(fileCount, frameCount, smallPicWidth, smallPicHeight, percentage)
+
+            // var imageLocation = {picNum: 0, x: }
+        })
         // var renderer = document.getElementById(media.id + '-rendername');
 
         // media.addEventListener('loadedmetadata', function () {
