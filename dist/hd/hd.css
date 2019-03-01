@@ -1,0 +1,9 @@
+.mejs__hd > button,
+.mejs-hd > button {
+    background: url('hd.png') 0 2px no-repeat;
+    filter: invert(0%);
+}
+
+/* mejs__inverted {
+    filter: invert(0%)!;
+} */

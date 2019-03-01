@@ -21,8 +21,9 @@ html, body {
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
+
 
 /* #player1 {
     width: 100% !important;

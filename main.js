@@ -35,9 +35,8 @@ var player = new MediaElementPlayer("player1", {
     stretching: true,
     pluginPath: "./node_modules/mediaelement/build/",
     useDefaultControls: true,
-    features: ["quality"],
-    qualityText: "quality",
-    defaultQuality: "720",
+    features: [],
+    // defaultQuality: "720",
     // alwaysShowControls: true,
 
     success: function (mediaElement, originalNode, instance) {
@@ -57,7 +56,7 @@ var player = new MediaElementPlayer("player1", {
             document.getElementById('storyboard-image').classList.add("hidden")
         })
         slider.addEventListener("mousemove", function (e) {
-            console.log("j: ", e.layerX);
+            // console.log("j: ", e.layerX);
             var percentage = (e.layerX * 100.0) / fullwidth;
             // imageLocation = {
             //     picNum,
@@ -76,7 +75,7 @@ var player = new MediaElementPlayer("player1", {
                 smallPicHeight,
                 percentage
             );
-            console.log('imageLocation: ', imageLocation)
+            // console.log('imageLocation: ', imageLocation)
             var playerHeight = document.getElementsByClassName('media-wrapper')[0].clientHeight
             // var imageLocation = { picNum: 0, x: 0, y: 0 }
             var imageElement = document.getElementById('storyboard-image')
@@ -95,3 +94,9 @@ var player = new MediaElementPlayer("player1", {
 
     }
 });
+
+// var playerAudio = new MediaElementPlayer("player1-audio", {
+//     pluginPath: "./node_modules/mediaelement/build/",
+//     success: function (mediaElement, originalNode, instance) {
+//     }
+// })
