@@ -30,12 +30,24 @@ function calc(
   return res;
 }
 
+function request(theUrl, callback)
+{
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange = function() { 
+        if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+            callback(xmlHttp.responseText);
+    }
+    xmlHttp.open("GET", theUrl, true); // true for asynchronous 
+    xmlHttp.send(null);
+}
+
+
 
 var player = new MediaElementPlayer("player1", {
     stretching: true,
     pluginPath: "./node_modules/mediaelement/build/",
     useDefaultControls: true,
-    features: ["ads", "vast", "postroll", "preroll"],
+    features: ["ads", "vast"],
     adsPrerollMediaUrl: ["https://quera.ir/qbox/view/oNcV8e0I4j/vast.xml"],
     // vastAdTagUrl: "MediaFile",
     // defaultQuality: "720",
@@ -44,15 +56,6 @@ var player = new MediaElementPlayer("player1", {
     success: function (mediaElement, originalNode, instance) {
         // caption
         // caption = getElementsByClassName('mejs__captions-text')[0]
-
-
-
-
-
-
-
-
-        // storyboard
         var slider = document.getElementsByClassName("mejs__time-slider")[0];
         var fullwidth = slider.offsetWidth;
         var storyBoardImages = [
@@ -65,6 +68,19 @@ var player = new MediaElementPlayer("player1", {
             smallPicHeight = 90;
         var fileCount = storyBoardImages.length;
         var frameCount = 95;
+        // request("http://cf6cabb0.ngrok.io/tarkibi", function (res) {
+        //     res = JSON.parse(res)
+        //     mediaElement.setSrc(res.video)
+        //     storyBoardImages = res.storyboard
+        //     // smallPicHeight = res.smallPicHeight
+        //     // smallPicWidth = res.smallPicWidth
+        //     // frameCount = res.frameCount
+        //     // fileCount = res.fileCount
+
+        // })
+
+        // storyboard
+        
         slider.addEventListener("mouseout", function (e) {
             document.getElementById('storyboard-image').classList.add("hidden")
         })
