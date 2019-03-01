@@ -40,6 +40,17 @@ var player = new MediaElementPlayer("player1", {
     // alwaysShowControls: true,
 
     success: function (mediaElement, originalNode, instance) {
+        // caption
+        // caption = getElementsByClassName('mejs__captions-text')[0]
+
+
+
+
+
+
+
+
+        // storyboard
         var slider = document.getElementsByClassName("mejs__time-slider")[0];
         var fullwidth = slider.offsetWidth;
         var storyBoardImages = [

@@ -9,12 +9,15 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.9/mediaelement-and-player.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.9/mediaelementplayer.min.css">
+    <!-- <script src="dist/mediaelement/build/mediaelement-and-player.js"></script> -->
+    <!-- <link rel="stylesheet" href="dist/mediaelement/build/mediaelementplayer.css"> -->
+
 
     <script src="dist/quality/quality.js"></script>
     <link rel="stylesheet" href="dist/quality/quality.css">
 
-    <script src="dist/hd/hd.js"></script>
-    <link rel="stylesheet" href="dist/hd/hd.css">
+    <!-- <script src="dist/hd/hd.js"></script> -->
+    <!-- <link rel="stylesheet" href="dist/hd/hd.css"> -->
 
     <link rel="stylesheet" type="text/css" media="screen" href="main.css">
 
@@ -27,16 +30,18 @@
                 <div id="storyboard-image" class="hidden">
                 </div>
             <video id="player1" width="640" height="360" style="max-width:100%;" preload="none" controls playsinline
-                webkit-playsinline>
+                webkit-playsinline >
+                <source src="https://quera.ir/qbox/view/CZuyN2vaUM/sample.mp4" type="video/mp4" data-quality="720">
+                <track kind="subtitles" src="http://cors.io/?https://quera.ir/qbox/view/HUpWE8sSVp/sample.auto.vtt" label="English" srclang="en" />
+                <track kind="subtitles" src="http://cors.io/?https://quera.ir/qbox/view/xGGXTz8Z6D/sample.fa.vtt" label="Farsi" srclang="fa" />
+    
                 <!-- <source src="https://quera.ir/qbox/view/rQFYrbV4Kc/sample_720.mp4" type="video/mp4" data-quality="720"> -->
                 <!-- <source src="https://quera.ir/qbox/view/7pDFocgufX/sample_360.mp4" type="video/mp4" data-quality="360"> -->
 
                 <!-- <source src="https://quera.ir/qbox/view/CZuyN2vaUM/sample.mp4" type="video/mp4" data-quality="720"> -->
                 <!-- <source src="https://quera.ir/qbox/view/Q7FUU2ZGYj/sample_hd.mp4" type="video/mp4" data-quality="720"> -->
                 <!-- <source src="https://www.dideo.ir/static/sample_hd2.mp4" type="video/mp4" data-quality="720"> -->
-                <source src="https://quera.ir/qbox/view/CZuyN2vaUM/sample.mp4" type="video/mp4">
-                <track kind="subtitles" src="https://quera.ir/qbox/view/HUpWE8sSVp/sample.en.vtt" srclang="en" />
-
+               
                 <!-- <source src="https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_20mb.mp4" type="video/mp4"
                     data-quality="auto">
                 <source src="https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_20mb.mp4" type="video/mp4"
