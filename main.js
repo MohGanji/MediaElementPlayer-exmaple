@@ -53,6 +53,9 @@ var player = new MediaElementPlayer("player1", {
             smallPicHeight = 90;
         var fileCount = storyBoardImages.length;
         var frameCount = 95;
+        slider.addEventListener("mouseout", function (e) {
+            document.getElementById('storyboard-image').classList.add("hidden")
+        })
         slider.addEventListener("mousemove", function (e) {
             console.log("j: ", e.layerX);
             var percentage = (e.layerX * 100.0) / fullwidth;
@@ -74,10 +77,20 @@ var player = new MediaElementPlayer("player1", {
                 percentage
             );
             console.log('imageLocation: ', imageLocation)
+            var playerHeight = document.getElementsByClassName('media-wrapper')[0].clientHeight
             // var imageLocation = { picNum: 0, x: 0, y: 0 }
-            document.getElementById('storyboard-image').setAttribute('background-image', `url(${storyBoardImages[imageLocation.picNum]})`)
-            document.getElementById('storyboard-image').setAttribute('background-position-x', `-${imageLocation.x}`)
-            document.getElementById('storyboard-image').setAttribute('background-position-y', `-${imageLocation.y}`)
+            var imageElement = document.getElementById('storyboard-image')
+            imageElement.classList.remove("hidden")
+            Object.assign(imageElement.style,{
+                "background-image": `url("${storyBoardImages[imageLocation.picNum]}")`,
+                "background-position-x" : `-${imageLocation.x}px`,
+                "background-position-y" : `-${imageLocation.y}px`,
+                "left" : `${e.screenX - 85}px`,
+                "top" : `${playerHeight - smallPicHeight - 30 }px`,
+            });
+            // .setAttribute('background-image', ``)
+            // document.getElementById('storyboard-image').setAttribute('background-position-x', `-${imageLocation.x}`)
+            // document.getElementById('storyboard-image').setAttribute('background-position-y', `-${imageLocation.y}`)
         })
 
     }

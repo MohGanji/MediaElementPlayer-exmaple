@@ -11,6 +11,17 @@ html, body {
     background-image: url("https://quera.ir/qbox/view/HpmNqdhNbk/M0.jpg");
     background-position-x: 0px;
     background-position-y: 0px;
+    display: inline-block;
+    position: absolute;
+    bottom: 205px;
+    z-index: 1;
+    opacity: 0.8;
+    border-radius: 2px;
+    border: 1px solid #f1f1f1;
+}
+
+.hidden {
+    display: none;
 }
 
 /* #player1 {
