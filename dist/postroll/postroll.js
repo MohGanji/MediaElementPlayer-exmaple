@@ -38,6 +38,7 @@ Object.assign(MediaElementPlayer.prototype, {
 			});
 
 			t.media.addEventListener('ended', function () {
+				console.log('ended')
 				mejs.Utils.ajax(postrollLink.getAttribute('href'), 'html', function (data) {
 					layers.querySelector('.' + t.options.classPrefix + 'postroll-layer-content').innerHTML = data;
 				});

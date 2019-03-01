@@ -35,7 +35,9 @@ var player = new MediaElementPlayer("player1", {
     stretching: true,
     pluginPath: "./node_modules/mediaelement/build/",
     useDefaultControls: true,
-    features: [],
+    features: ["ads", "vast", "postroll", "preroll"],
+    adsPrerollMediaUrl: ["https://quera.ir/qbox/view/oNcV8e0I4j/vast.xml"],
+    // vastAdTagUrl: "MediaFile",
     // defaultQuality: "720",
     // alwaysShowControls: true,
 
